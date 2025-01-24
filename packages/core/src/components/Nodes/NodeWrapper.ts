@@ -100,7 +100,8 @@ const NodeWrapper = defineComponent({
     const isInit = toRef(() => !!node.dimensions.width && !!node.dimensions.height)
 
     const nodeCmp = computed(() => {
-      const name = node.type || 'default'
+      // const name = node.type || 'default'
+      const name = node.shapeType || 'default'
 
       const slot = slots?.[`node-${name}`]
       if (slot) {
@@ -193,7 +194,7 @@ const NodeWrapper = defineComponent({
       )
     })
 
-    watch([() => node.type, () => node.sourcePosition, () => node.targetPosition], () => {
+    watch([() => node.type, () => node.shapeType, () => node.sourcePosition, () => node.targetPosition], () => {
       nextTick(() => {
         updateNodeDimensions([{ id: props.id, nodeElement: nodeElement.value as HTMLDivElement, forceUpdate: true }])
       })
@@ -264,7 +265,7 @@ const NodeWrapper = defineComponent({
           'data-id': node.id,
           'class': [
             'vue-flow__node',
-            `vue-flow__node-${nodeCmp.value === false ? 'default' : node.type || 'default'}`,
+            `vue-flow__node-${nodeCmp.value === false ? 'default' : node.shapeType || 'default'}`,
             {
               [noPanClassName.value]: isDraggable.value,
               dragging: dragging?.value,
@@ -298,6 +299,7 @@ const NodeWrapper = defineComponent({
           h(nodeCmp.value === false ? getNodeTypes.value.default : (nodeCmp.value as any), {
             id: node.id,
             type: node.type,
+            shapeType: node.shapeType,
             data: node.data,
             events: { ...node.events, ...on },
             selected: node.selected,

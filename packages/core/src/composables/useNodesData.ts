@@ -7,6 +7,7 @@ import { useVueFlow } from './useVueFlow'
 interface NodeData<NodeType extends Node = GraphNode> {
   id: string
   type: NodeType['type']
+  shapeType: NodeType['type']
   data: NonNullable<NodeType['data']>
 }
 
@@ -42,6 +43,7 @@ export function useNodesData(_nodeIds: any): any {
           return {
             id: node.id,
             type: node.type,
+            shapeType: node.shapeType,
             data: node.data,
           }
         }
@@ -58,6 +60,7 @@ export function useNodesData(_nodeIds: any): any {
           data.push({
             id: node.id,
             type: node.type,
+            shapeType: node.shapeType,
             data: node.data,
           })
         }

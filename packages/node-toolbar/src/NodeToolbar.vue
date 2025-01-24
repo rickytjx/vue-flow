@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, inject, toRef } from 'vue'
-import type { GraphNode, Rect, ViewportTransform } from '@vue-flow/core'
-import { NodeIdInjection, Position, getRectOfNodes, useVueFlow } from '@vue-flow/core'
+import type { GraphNode, Rect, ViewportTransform } from '@jokerc/vue-flow-core'
+import { NodeIdInjection, Position, getRectOfNodes, useVueFlow } from '@jokerc/vue-flow-core'
 
 import type { CSSProperties } from 'vue'
 import type { Align, NodeToolbarProps } from './types'
@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<NodeToolbarProps>(), {
 
 const contextNodeId = inject(NodeIdInjection, null)
 
-const { viewportRef, viewport, getSelectedNodes, findNode } = useVueFlow()
+const { viewportRef, viewport, getSelectedNodes, findNode } = useVueFlow(props.flowId)
 
 const nodes = computed(() => {
   const nodeIds = Array.isArray(props.nodeId) ? props.nodeId : [props.nodeId || contextNodeId || '']

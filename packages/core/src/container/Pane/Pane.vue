@@ -194,6 +194,8 @@ function onPointerMove(event: PointerEvent) {
   userSelectionRect.value = nextUserSelectRect
   userSelectionActive.value = true
   nodesSelectionActive.value = false
+
+  emits.selectionMoving({ userSelectionRect: nextUserSelectRect })
 }
 
 function onPointerUp(event: PointerEvent) {

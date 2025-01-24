@@ -179,6 +179,7 @@ export interface FlowProps {
   panOnDrag?: boolean | number[]
   minZoom?: number
   maxZoom?: number
+  getSelectionBounds?: (() => Rect) | null
   defaultViewport?: Partial<ViewportTransform>
   translateExtent?: CoordinateExtent
   nodeExtent?: CoordinateExtent | CoordinateExtentRange
@@ -273,6 +274,12 @@ export interface FlowEmits {
   (event: 'selectionDragStop', selectionEvent: NodeDragEvent): void
   (event: 'selectionContextMenu', selectionEvent: { event: MouseEvent; nodes: GraphNode[] }): void
   (event: 'selectionStart', selectionEvent: MouseEvent): void
+  (
+    event: 'selectionMoving',
+    selectionEvent: {
+      userSelectionRect: { startX: number; startY: number; x: number; y: number; width: number; height: number }
+    },
+  ): void
   (event: 'selectionEnd', selectionEvent: MouseEvent): void
 
   (event: 'viewportChangeStart', viewport: ViewportTransform): void

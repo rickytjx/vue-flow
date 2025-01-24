@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { NodeChange, NodeDimensionChange, NodePositionChange } from '@vue-flow/core'
-import { clamp, useGetPointerPosition, useVueFlow } from '@vue-flow/core'
+import type { NodeChange, NodeDimensionChange, NodePositionChange } from '@jokerc/vue-flow-core'
+import { clamp, useGetPointerPosition, useVueFlow } from '@jokerc/vue-flow-core'
 import { select } from 'd3-selection'
 import { drag } from 'd3-drag'
 import { ref, toRef, watchEffect } from 'vue'

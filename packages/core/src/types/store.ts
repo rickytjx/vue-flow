@@ -101,6 +101,7 @@ export interface State extends Omit<FlowProps, 'id' | 'modelValue'> {
   connectionRadius: number
   connectionStatus: ConnectionStatus | null
   isValidConnection: ValidConnectionFunc | null
+  getSelectionBounds: (() => Rect) | null
 
   connectOnClick: boolean
   edgeUpdaterRadius: number

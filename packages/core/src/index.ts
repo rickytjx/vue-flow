@@ -48,6 +48,7 @@ export {
   getBoundsofRects,
   connectionExists,
   clamp,
+  getOverlappingArea,
 } from './utils/graph'
 
 /**

@@ -39,6 +39,7 @@ export function createHooks(): FlowHooks {
     selectionDragStop: createExtendedEventHook(),
     selectionContextMenu: createExtendedEventHook(),
     selectionStart: createExtendedEventHook(),
+    selectionMoving: createExtendedEventHook(),
     selectionEnd: createExtendedEventHook(),
     viewportChangeStart: createExtendedEventHook(),
     viewportChange: createExtendedEventHook(),

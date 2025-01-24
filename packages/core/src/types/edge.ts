@@ -69,6 +69,7 @@ export interface DefaultEdge<
   label?: string | VNode | Component<EdgeTextProps>
   /** Edge type, can be a default type or a custom type */
   type?: Type
+  shapeType?: Type
   /** Source node id */
   source: string
   /** Target node id */

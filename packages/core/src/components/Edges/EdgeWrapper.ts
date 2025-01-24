@@ -79,7 +79,8 @@ const EdgeWrapper = defineComponent({
     const edgeStyle = computed(() => (edge.value.style instanceof Function ? edge.value.style(edge.value) : edge.value.style))
 
     const edgeCmp = computed(() => {
-      const name = edge.value.type || 'default'
+      // const name = edge.value.type || 'default'
+      const name = edge.value.shapeType || 'default'
 
       const slot = slots?.[`edge-${name}`]
       if (slot) {
@@ -182,7 +183,7 @@ const EdgeWrapper = defineComponent({
           'data-id': props.id,
           'class': [
             'vue-flow__edge',
-            `vue-flow__edge-${edgeCmp.value === false ? 'default' : edge.value.type || 'default'}`,
+            `vue-flow__edge-${edgeCmp.value === false ? 'default' : edge.value.shapeType || 'default'}`,
             noPanClassName.value,
             edgeClass.value,
             {
@@ -217,6 +218,7 @@ const EdgeWrapper = defineComponent({
                 source: edge.value.source,
                 target: edge.value.target,
                 type: edge.value.type,
+                shapeType: edge.value.shapeType,
                 updatable: isUpdatable.value,
                 selected: edge.value.selected,
                 animated: edge.value.animated,

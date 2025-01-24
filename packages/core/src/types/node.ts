@@ -41,6 +41,7 @@ export interface Node<Data = ElementData, CustomEvents extends Record<string, Cu
   position: XYPosition
   /** node type, can be a default type or a custom type */
   type?: Type
+  shapeType?: Type
   /** handle position */
   targetPosition?: Position
   /** handle position */

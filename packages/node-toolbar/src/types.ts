@@ -1,6 +1,7 @@
-import type { Position } from '@vue-flow/core'
+import type { Position } from '@jokerc/vue-flow-core'
 
 export interface NodeToolbarProps {
+  flowId?: string
   nodeId?: string | string[]
   isVisible?: boolean
   position?: Position

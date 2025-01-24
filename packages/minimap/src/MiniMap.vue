@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { CoordinateExtent, GraphNode, PanelPosition } from '@vue-flow/core'
-import { Panel, getBoundsofRects, getConnectedEdges, getRectOfNodes, useVueFlow } from '@vue-flow/core'
+import type { CoordinateExtent, GraphNode, PanelPosition } from '@jokerc/vue-flow-core'
+import { Panel, getBoundsofRects, getConnectedEdges, getRectOfNodes, useVueFlow } from '@jokerc/vue-flow-core'
 import { zoom, zoomIdentity } from 'd3-zoom'
 import type { D3ZoomEvent } from 'd3-zoom'
 import { pointer, select } from 'd3-selection'
@@ -28,6 +28,7 @@ const {
   inversePan = false,
   zoomStep = 10,
   offsetScale = 5,
+  flowId,
 } = defineProps<MiniMapProps>()
 
 const emit = defineEmits<MiniMapEmits>()
@@ -39,7 +40,7 @@ const attrs: Record<string, any> = useAttrs()
 const defaultWidth = 200
 const defaultHeight = 150
 
-const { id, edges, viewport, translateExtent, dimensions, emits, d3Selection, d3Zoom, getNodesInitialized } = useVueFlow()
+const { id, edges, viewport, translateExtent, dimensions, emits, d3Selection, d3Zoom, getNodesInitialized } = useVueFlow(flowId)
 
 const el = ref<SVGElement>()
 

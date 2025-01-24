@@ -41,6 +41,7 @@ const props = withDefaults(defineProps<FlowProps>(), {
   autoPanOnConnect: undefined,
   autoPanOnNodeDrag: undefined,
   isValidConnection: undefined,
+  getSelectionBounds: undefined,
   deleteKeyCode: undefined,
   selectionKeyCode: undefined,
   multiSelectionKeyCode: undefined,

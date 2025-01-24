@@ -1,15 +1,15 @@
 {
-  "name": "@vue-flow/core",
-  "version": "1.42.1",
+  "name": "@jokerc/vue-flow-core",
+  "version": "1.42.3",
   "private": false,
-  "license": "MIT",
   "author": "Burak Cakmakoglu<78412429+bcakmakoglu@users.noreply.github.com>",
+  "license": "MIT",
+  "homepage": "https://vueflow.dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bcakmakoglu/vue-flow",
     "directory": "packages/core"
   },
-  "homepage": "https://vueflow.dev",
   "bugs": {
     "url": "https://github.com/bcakmakoglu/vue-flow/issues"
   },
@@ -29,11 +29,9 @@
     "vueflow",
     "typescript"
   ],
-  "main": "./dist/vue-flow-core.js",
-  "module": "./dist/vue-flow-core.mjs",
-  "types": "./dist/index.d.ts",
-  "unpkg": "./dist/vue-flow-core.iife.js",
-  "jsdelivr": "./dist/vue-flow-core.iife.js",
+  "sideEffects": [
+    "*.css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -43,12 +41,14 @@
     "./dist/style.css": "./dist/style.css",
     "./dist/theme-default.css": "./dist/theme-default.css"
   },
+  "main": "./dist/vue-flow-core.js",
+  "module": "./dist/vue-flow-core.mjs",
+  "unpkg": "./dist/vue-flow-core.iife.js",
+  "jsdelivr": "./dist/vue-flow-core.iife.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "*.d.ts"
-  ],
-  "sideEffects": [
-    "*.css"
   ],
   "publishConfig": {
     "access": "public",

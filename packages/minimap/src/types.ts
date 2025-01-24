@@ -1,4 +1,4 @@
-import type { Dimensions, GraphNode, NodeMouseEvent, PanelPosition, PanelPositionType, XYPosition } from '@vue-flow/core'
+import type { Dimensions, GraphNode, NodeMouseEvent, PanelPosition, PanelPositionType, XYPosition } from '@jokerc/vue-flow-core'
 import type { CSSProperties, InjectionKey } from 'vue'
 
 /** expects a node and returns a color value */
@@ -7,6 +7,7 @@ export type MiniMapNodeFunc = (node: GraphNode) => string
 export type ShapeRendering = CSSProperties['shapeRendering']
 
 export interface MiniMapProps {
+  flowId?: string
   /** Node color, can be either a string or a string func that receives the current node */
   nodeColor?: string | MiniMapNodeFunc
   /** Node stroke color, can be either a string or a string func that receives the current node */

@@ -71,6 +71,7 @@ export interface FlowEvents {
   selectionDragStop: NodeDragEvent
   selectionContextMenu: { event: MouseEvent; nodes: GraphNode[] }
   selectionStart: MouseEvent
+  selectionMoving: { userSelectionRect: { startX: number; startY: number; x: number; y: number; width: number; height: number } }
   selectionEnd: MouseEvent
   viewportChangeStart: ViewportTransform
   viewportChange: ViewportTransform

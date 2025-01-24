@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, inject, toRef, watch } from 'vue'
-import type { NodeDimensionChange } from '@vue-flow/core'
-import { NodeIdInjection, useVueFlow } from '@vue-flow/core'
+import type { NodeDimensionChange } from '@jokerc/vue-flow-core'
+import { NodeIdInjection, useVueFlow } from '@jokerc/vue-flow-core'
 import ResizeControl from './ResizeControl.vue'
 import type { ControlLinePosition, ControlPosition, NodeResizerEmits, NodeResizerProps } from './types'
 import { ResizeControlVariant } from './types'
