@@ -93,18 +93,33 @@ export function isEdgeVisible({
 
 export function getEdgeZIndex(edge: GraphEdge, findNode: Actions['findNode'], elevateEdgesOnSelect = false) {
   const hasZIndex = typeof edge.zIndex === 'number'
-  let z = hasZIndex ? edge.zIndex! : 0
+  const z = hasZIndex ? edge.zIndex! : 0
 
   const source = findNode(edge.source)
   const target = findNode(edge.target)
 
   if (!source || !target) {
-    return 0
+    return z
   }
 
-  if (elevateEdgesOnSelect) {
-    z = hasZIndex ? edge.zIndex! : Math.max(source.computedPosition.z || 0, target.computedPosition.z || 0)
+  // 获取 source 和 target 节点中内部存储的 z-index （不存在则默认为 0）
+  const sourceZ = source.computedPosition?.z || 0
+  const targetZ = target.computedPosition?.z || 0
+  // 取两个节点层级中的较大值
+  const maxInternalZ = Math.max(sourceZ, targetZ)
+
+  // 如果不需要在选中时提升层级，则直接返回基础 zIndex 与各节点层级之间的较大值
+  if (!elevateEdgesOnSelect) {
+    return Math.max(maxInternalZ, z)
   }
 
-  return z
+  // 判断连线本身或其中一个端点的节点是否被选中
+  const isLinkOrNodeSelected = edge.selected || target.selected || source.selected
+
+  // 计算提升的层级值：以各节点内部 z-index 为基础，至少确保为 1000
+  const elevatedZ = Math.max(source.computedPosition?.z || 0, target.computedPosition?.z || 0, 1000)
+
+  // 如果选中，则 zIndex 加上提升值，否则不加。
+  // 最终结果为基础提升后的 zIndex 与 maxInternalZ 之间取较大者，保证不会低于节点的层级
+  return Math.max(z + (isLinkOrNodeSelected ? elevatedZ : 0), maxInternalZ)
 }
